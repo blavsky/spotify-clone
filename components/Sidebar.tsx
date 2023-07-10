@@ -7,6 +7,7 @@ import { BiSearch } from "react-icons/bi";
 import Box from "./Box";
 import SidebarItem from "./SidebarItem";
 import Library from "./Library";
+import { MyUserContextProvider } from "@/hooks/useUser";
 
 interface SidebarProps {
   children: React.ReactNode;
@@ -71,7 +72,10 @@ const Sidebar: React.FC<SidebarProps> = ({
             h-full
           "
         >
-          <Library />
+          <MyUserContextProvider>
+            <Library />
+          </MyUserContextProvider>
+          
         </Box>
       </div>
       <main  

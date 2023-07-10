@@ -1,8 +1,8 @@
 import { Subscription, UserDetails } from "@/types";
-import { User } from "@supabase/auth-helpers-nextjs";
 import { 
   useSessionContext, 
-  useUser as useSupaUser 
+  useUser as useSupaUser,
+  User
 } from "@supabase/auth-helpers-react";
 import { createContext, useContext, useEffect, useState } from "react";
 
@@ -77,13 +77,18 @@ export const MyUserContextProvider = (props: Props) => {
     subscription
   };
 
-  return <UserContext.Provider value={value} {...props} />
+  return (
+    <UserContext.Provider value={value} {...props}>
+    
+    </UserContext.Provider>
+  )
 };
 
 export const useUser = () => {
   const context = useContext(UserContext);
   if (context === undefined) {
-    throw new Error('useUser must be used within a MyUSerContextProvider');
+    console.log(context);
+    throw new Error('useUser must be used within a MyUserContextProvider');
   }
 
   return context;
