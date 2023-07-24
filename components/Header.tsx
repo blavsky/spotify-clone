@@ -173,7 +173,7 @@ const Header: React.FC<HeaderProps> = ({
                   bg-white
                 "
               >
-                <FaUserAlt />
+                <FaUserAlt size={24}/>
               </Button>
             </div>
           ) : (
